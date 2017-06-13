@@ -1,0 +1,6 @@
+/node_modules
+.idea
+*.xml
+/test.txt
+/testjs.html
+/testjs.js

@@ -1,0 +1,52 @@
+<%- layout("template2")%>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Shop Smart, Save Big!</h1>
+        <p>Find your favourite Product.</p>
+        <p><a class="btn btn-primary btn-lg" href="/signup">Sign Up &raquo;</a></p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <% for(var i=0;i<products.length;i++){ %>
+        <div class="col-md-4">
+            <a href="/product/<%=products[i]._id%>">
+                <div class="thumbnail">
+                    <img src="<%=products[i].image%>"/>
+                    <div class="caption">
+                        <h3><%=products[i].name%></h3>
+                        <p><%=products[i].category.name%></p>
+                        <p>N<%=products[i].price%></p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <%}%>
+
+        <ul class="pagination text-center">
+            <li>
+                <%if(has_previous_page){%>
+                    <li><a href="/page/<%=previous_page %>">Prev</a></li>
+                <%}%>
+                <%for(var i=1;i<=pages;i++){%>
+                    <%if(i==1 && i==current_page){%>
+                        <li class="active"><a href="/"><%= i %></a></li>
+                    <%} else if(i==1){%>
+                        <li><a href="/"><%= i %></a></li>
+                    <%} else if(i==current_page){%>
+                       <li class='active'><a href="/page/<%= i %>"><%= i %></a></li>
+                    <%}else{%>
+                    <li><a href="/page/<%= i %>"><%= i %></a></li>
+                  <%}%>
+                <%}%>
+                <%if(has_next_page){%>
+                   <li><a href="/page/<%=next_page %>">Next</a></li>
+                <%}%>
+            </li>
+        </ul>
+    </div>
+
+</div>

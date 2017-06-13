@@ -1,0 +1,31 @@
+<%- layout("./template2")%>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style="background-color: #737373">
+    <div class="container">
+        <h2 style="color: #ffffff">Welcome to your Starbyte Dashboard <%= user.profile.name%></h2>
+        <p style="color: #ffffff">Your details supposed to be here</p>
+        <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="<%= user.profile.picture %>" class=" img-circle img-center img-responsive" alt="can't display picture"/>
+            <br/>
+            <p>Name: <%= user.profile.name%></p>
+            <p>Email: <%= user.email%></p>
+            <% if(user.address=== "" || typeof user.address === "undefined"){ %>
+             <p>Adress: <span style="color: #d4081a ; font-weight: bold"> you have no address</span></p>
+            <%} else{%>
+            <p>Adress: <%= user.address%></p>
+            <%}%>
+
+            <a href="/edit-profile" class="btn btn-primary">Edit Profile</a>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+</div> <!-- /container -->
